@@ -1,0 +1,23 @@
+{
+  "name": "products-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "dependencies": {
+    "apollo-server": "^2.9.14",
+    "apollo-server-express": "^2.3.1",
+    "express": "^4.16.4",
+    "graphql": "^14.5.8",
+    "mongoose": "^5.4.2",
+    "yarn": "^1.21.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  },
+  "scripts": {
+    "start": "nodemon src",
+    "debug": "node --inspect src"
+  },
+  "author": "",
+  "license": "ISC"
+}
