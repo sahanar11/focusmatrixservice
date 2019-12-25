@@ -12,7 +12,7 @@ const server = new ApolloServer({
   resolvers: resolvers,
   // Context is where we can store authScope, dbCon, etc - so that resolvers can get access to the same.
   context: async ({ req }) => ({
-    db: await mongoose.connect('mongodb://localhost/eisenhovermatrix')
+    db: await mongoose.connect('mongodb://localhost:27017/eisenhovermatrix')
   })
 });
 
