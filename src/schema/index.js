@@ -2,39 +2,39 @@ const { gql } = require('apollo-server-express');
 
 const schema = gql`
 type task {
-  taskId: String
-  taskDesc: String
-  taskType: String
-  taskGroup: String
-  taskCategory: String
-  taskPriority: Int
-  taskCreatedDate: String
-  taskDueDate: String
-  isCompleted: Boolean
+  id: String
+  description: String
+  type: String
+  group: String
+  category: String
+  priority: Int
+  createdDate: String
+  dueDate: String
+  status: String
   }
 type Query {
     task(filterKey: String 
         filterVal: String
-        taskId: String
+        id: String
         ):[task],
     tasks(sortKey: String): [task]
   }
   type Mutation {
     update_task (
-        taskId: String
-        isCompleted: Boolean
+        id: String
+        status: String
     ): task,
     delete_task (
-        taskId: String
+        id: String
     ): task,
     create_task (
-      taskDesc: String
-      taskType: String
-      taskGroup: String
-      taskCategory: String
-      taskPriority: Int
-      taskDueDate: String
-      isCompleted: Boolean
+      description: String
+      type: String
+      group: String
+      category: String
+      priority: Int
+      dueDate: String
+      status: String
     ): task
 }
  
