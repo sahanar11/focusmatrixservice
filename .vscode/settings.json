@@ -1,0 +1,14 @@
+{
+    "window.zoomLevel": 0,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "workbench.colorTheme": "Default Dark+",
+    "eslint.autoFixOnSave": true,
+    "diffEditor.renderSideBySide": false,
+    "diffEditor.ignoreTrimWhitespace": true,
+    "workbench.iconTheme": "material-icon-theme",
+    "bracket-pair-colorizer-2.colors": [
+        "Blue",
+        "Brown",
+        "Green",
+    ]
+}

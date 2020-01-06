@@ -1,6 +1,13 @@
 const { gql } = require('apollo-server-express');
 
 const schema = gql`
+type user{
+  id: String
+  name: String
+  googleId: String
+  email: String
+  password: String
+}
 type task {
   id: String
   description: String
@@ -13,6 +20,10 @@ type task {
   status: String
   }
 type Query {
+  user(
+    id: String
+    ):[user],
+    users(sortKey: String): [user]
     task(filterKey: String 
         filterVal: String
         id: String
@@ -20,6 +31,13 @@ type Query {
     tasks(sortKey: String): [task]
   }
   type Mutation {
+    create_user(
+      id: String
+      name: String
+      googleId: String
+      email: String
+      password: String
+    ): user,
     update_task (
         id: String
         status: String
@@ -37,7 +55,6 @@ type Query {
       status: String
     ): task
 }
- 
 `;
 
 module.exports = schema;

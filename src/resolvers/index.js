@@ -1,7 +1,14 @@
 const task = require("../model/task");
+const User = require('../model/user');
 
 const resolvers = {
     Query: {
+        user: async(_,{id}) =>{
+            let userfound =  await User.find({"id": id});
+            return userfound;
+        },
+
+
         task: async (_, {filterKey,filterVal,parent, context}) => {
             let taskfound;
             if(filterKey == "id"){
@@ -45,13 +52,15 @@ const resolvers = {
         }
     },
     Mutation: {
+        create_user: async (_, { id,name,googleId, email,password}) => {
+       
+            const p = new User({id,name,googleId, email,password});
+            p.id = p._id;
+            const savedUser = await p.save();
+            return savedUser.toObject();
+        },
         create_task: async (_, { description,type,group, category,priority,dueDate, status}) => {
-            // const tasks = await task.find({id});
-            // if (tasks && tasks.length > 0) {
-            //     console.log('task already exists with this id - error!  ');
-            //     return null;
-            // }
-           
+          
             let createdDate = new Date().getTime();
             const p = new task({ description,type,group,category,priority,createdDate,dueDate, status});
             p.id = p._id;
